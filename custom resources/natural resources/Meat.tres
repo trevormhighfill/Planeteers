@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_51usi")
+natural_resource_name = "Meat"
 natural_resource_type = 1
 base_extraction_rate = 10.0
 base_extraction_amount = 7.0

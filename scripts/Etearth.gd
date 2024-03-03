@@ -1,12 +1,14 @@
 extends Sprite2D
 class_name Etearth
 
-signal add_to_resource(amount : int,resource : EnumHolder.natural_resources)
+
 
 @export var planet : PlanetResource
 @export var current_workers : Array[Workers] = []
 #@onready var main = $SpaceScript
 #@export var resource_time : Array[float] = []
+signal add_to_resource(amount : int,resource : EnumHolder.natural_resources)
+signal update_planet_info(current_workers:Array[Workers])
 
 func _process(delta):
 	pass
@@ -20,8 +22,7 @@ func on_newly_added_worker(worker : Workers):
 	
 func resource_gathering(resource:NaturalResource):
 	await wait(resource.base_extraction_rate*planet.natural_resource_yield[0])
-	emit_signal("add_to_resource",resource.base_extraction_amount,resource.natural_resource_type)
-	print("donee")
+	emit_signal("add_to_resource",resource.base_extraction_amount,resource)
 	resource_gathering(planet.planet_natural_resources[0])
 	pass
 
@@ -35,5 +36,6 @@ func wait(seconds: float) -> void:
 
 func _on_hire_hunter__newly_added_worker(worker):
 	current_workers.append(worker)
-	print(current_workers[0].name)
+	emit_signal("update_planet_info",current_workers)
+	print("Hired ",current_workers[0].name, " and the employment team is ", current_workers.size())
 	pass # Replace with function body.

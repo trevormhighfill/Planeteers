@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_6ou3t")
+natural_resource_name = "Water"
 natural_resource_type = 4
 base_extraction_rate = 10.0
 base_extraction_amount = 10.0

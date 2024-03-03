@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_cb5kc")
+natural_resource_name = "Stone"
 natural_resource_type = 2
 base_extraction_rate = 17.0
 base_extraction_amount = 3.0

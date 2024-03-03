@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_dppj1")
+natural_resource_name = "Lava"
 natural_resource_type = 5
 base_extraction_rate = 40.0
 base_extraction_amount = 5.0
