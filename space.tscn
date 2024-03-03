@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://en4vhj2ik1g5"]
+[gd_scene load_steps=9 format=3 uid="uid://en4vhj2ik1g5"]
 
 [ext_resource type="Texture2D" uid="uid://crm80v4du5umy" path="res://icon.svg" id="1_52lar"]
 [ext_resource type="Script" path="res://scripts/space.gd" id="1_jmyn1"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://dgojgmmdg548f" path="res://custom resources/workers/Hunter.tres" id="5_eiu3u"]
 [ext_resource type="Script" path="res://scripts/EtearthButton.gd" id="5_v8kvh"]
 [ext_resource type="Script" path="res://scripts/Hire Hunter.gd" id="6_aas67"]
+[ext_resource type="Resource" uid="uid://ccsxr8aiyuv5v" path="res://custom resources/workers/Miner.tres" id="7_tx1ij"]
 
 [node name="Space" type="Node2D"]
 script = ExtResource("1_jmyn1")
@@ -30,7 +31,6 @@ offset_bottom = 399.0
 max_text_lines = 9000
 item_count = 1
 item_0/text = "Info"
-item_0/selectable = false
 
 [node name="Etearth" type="Sprite2D" parent="."]
 position = Vector2(541, 375)
@@ -50,9 +50,21 @@ script = ExtResource("5_v8kvh")
 [node name="Hire Hunter" type="Button" parent="."]
 offset_right = 144.0
 offset_bottom = 31.0
-text = "Hire"
+text = "Hire Hunter"
 script = ExtResource("6_aas67")
 hireable_worker = ExtResource("5_eiu3u")
+metadata/_edit_use_anchors_ = true
+
+[node name="Hire Miner" type="Button" parent="."]
+offset_left = -3.0
+offset_top = 33.0
+offset_right = 142.0
+offset_bottom = 98.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Hire Miner"
+script = ExtResource("6_aas67")
+hireable_worker = ExtResource("7_tx1ij")
 
 [connection signal="toggled" from="Infobutton" to="." method="_on_infobutton_toggled"]
 [connection signal="add_to_resource" from="Etearth" to="." method="_on_etearth_add_to_resource"]
@@ -60,4 +72,5 @@ hireable_worker = ExtResource("5_eiu3u")
 [connection signal="deselected" from="Etearth/EtearthButton" to="." method="button_deselected"]
 [connection signal="selected" from="Etearth/EtearthButton" to="." method="_on_etearth_button_selected"]
 [connection signal="toggled" from="Etearth/EtearthButton" to="Etearth/EtearthButton" method="_on_toggled"]
-[connection signal="_newly_added_worker" from="Hire Hunter" to="Etearth" method="_on_hire_hunter__newly_added_worker"]
+[connection signal="_newly_added_worker" from="Hire Hunter" to="Etearth" method="_newly_added_worker"]
+[connection signal="_newly_added_worker" from="Hire Miner" to="Etearth" method="_newly_added_worker"]
