@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="NaturalResource" load_steps=2 format=3 uid="uid://ca6sffc321rm"]
+
+[ext_resource type="Script" path="res://custom resources/natural resources/natural_resource.gd" id="1_cb5kc"]
+
+[resource]
+script = ExtResource("1_cb5kc")
+natural_resource_type = 2
+base_extraction_rate = 17.0
+base_extraction_amount = 3.0

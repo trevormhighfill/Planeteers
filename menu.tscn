@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://bost2aru3mj5u"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_1qv7c"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_1qv7c")
+
+[node name="Load" type="Button" parent="."]
+offset_left = 413.0
+offset_top = 264.0
+offset_right = 717.0
+offset_bottom = 302.0
+text = "Load "
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 412.0
+offset_top = 375.0
+offset_right = 716.0
+offset_bottom = 413.0
+text = "Quit"
+
+[connection signal="button_down" from="Load" to="." method="_on_load_button_down"]
+[connection signal="button_down" from="Quit" to="." method="_on_quit_button_down"]

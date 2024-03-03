@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PlanetResource" load_steps=7 format=3 uid="uid://dyk2nb22tonor"]
+
+[ext_resource type="Resource" uid="uid://cqmts6xivoba5" path="res://custom resources/natural resources/Iron.tres" id="1_62yba"]
+[ext_resource type="Resource" uid="uid://ca6sffc321rm" path="res://custom resources/natural resources/Stone.tres" id="2_6yonh"]
+[ext_resource type="Resource" uid="uid://b2vumkgvytvrh" path="res://custom resources/natural resources/Water.tres" id="3_sb48y"]
+[ext_resource type="Resource" uid="uid://cccwrx11nmvvh" path="res://custom resources/natural resources/Meat.tres" id="4_myxqn"]
+[ext_resource type="Resource" uid="uid://uisyet08cwec" path="res://custom resources/natural resources/Wood.tres" id="5_5kpfi"]
+[ext_resource type="Script" path="res://custom resources/planets/planet_resource.gd" id="6_ytuvg"]
+
+[resource]
+script = ExtResource("6_ytuvg")
+planet_name = "Etearth"
+planet_natural_resources = Array[Resource("res://custom resources/natural resources/natural_resource.gd")]([ExtResource("1_62yba"), ExtResource("4_myxqn"), ExtResource("2_6yonh"), ExtResource("5_5kpfi"), ExtResource("3_sb48y")])
+natural_resource_yield = Array[float]([1.5, 1.0, 1.0, 1.0, 1.0])

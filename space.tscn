@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://en4vhj2ik1g5"]
+
+[ext_resource type="Texture2D" uid="uid://crm80v4du5umy" path="res://icon.svg" id="1_52lar"]
+[ext_resource type="Script" path="res://scripts/space.gd" id="1_jmyn1"]
+[ext_resource type="Resource" uid="uid://dyk2nb22tonor" path="res://custom resources/planets/Etearth.tres" id="2_6xfxk"]
+[ext_resource type="Script" path="res://scripts/Etearth.gd" id="4_rycmx"]
+[ext_resource type="Script" path="res://Hire Hunter.gd" id="5_bv2w8"]
+[ext_resource type="Resource" uid="uid://dgojgmmdg548f" path="res://custom resources/workers/Hunter.tres" id="5_eiu3u"]
+
+[node name="Space" type="Node2D"]
+script = ExtResource("1_jmyn1")
+planets = Array[Resource("res://custom resources/planets/planet_resource.gd")]([ExtResource("2_6xfxk")])
+
+[node name="Infobutton" type="Button" parent="."]
+offset_left = 1031.0
+offset_top = 1.0
+offset_right = 1153.0
+offset_bottom = 35.0
+toggle_mode = true
+text = "INFORMATION"
+
+[node name="ItemList" type="ItemList" parent="Infobutton"]
+visible = false
+layout_mode = 0
+offset_left = -44.0
+offset_top = 32.0
+offset_right = 120.0
+offset_bottom = 402.0
+max_text_lines = 9000
+item_count = 2
+item_0/text = "Info"
+item_0/selectable = false
+item_1/text = "Iron 129002903"
+item_1/selectable = false
+
+[node name="Etearth" type="Sprite2D" parent="."]
+position = Vector2(541, 375)
+rotation = 0.598648
+texture = ExtResource("1_52lar")
+script = ExtResource("4_rycmx")
+planet = ExtResource("2_6xfxk")
+
+[node name="EtearthButton" type="Button" parent="Etearth"]
+offset_left = -63.0
+offset_top = -62.0
+offset_right = 64.0
+offset_bottom = 65.0
+
+[node name="Hire Hunter" type="Button" parent="."]
+offset_right = 144.0
+offset_bottom = 31.0
+text = "Hire"
+script = ExtResource("5_bv2w8")
+hireable_worker = ExtResource("5_eiu3u")
+
+[connection signal="toggled" from="Infobutton" to="." method="_on_infobutton_toggled"]
+[connection signal="add_to_resource" from="Etearth" to="." method="_on_etearth_add_to_resource"]
+[connection signal="button_down" from="Etearth/EtearthButton" to="." method="_on_etearth_button_button_down"]
+[connection signal="_newly_added_worker" from="Hire Hunter" to="Etearth" method="_on_hire_hunter__newly_added_worker"]
