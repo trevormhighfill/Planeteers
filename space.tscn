@@ -44,6 +44,7 @@ offset_left = -63.0
 offset_top = -62.0
 offset_right = 64.0
 offset_bottom = 65.0
+toggle_mode = true
 script = ExtResource("5_v8kvh")
 
 [node name="Hire Hunter" type="Button" parent="."]
@@ -56,5 +57,7 @@ hireable_worker = ExtResource("5_eiu3u")
 [connection signal="toggled" from="Infobutton" to="." method="_on_infobutton_toggled"]
 [connection signal="add_to_resource" from="Etearth" to="." method="_on_etearth_add_to_resource"]
 [connection signal="update_planet_info" from="Etearth" to="." method="update_planet_info"]
+[connection signal="deselected" from="Etearth/EtearthButton" to="." method="button_deselected"]
 [connection signal="selected" from="Etearth/EtearthButton" to="." method="_on_etearth_button_selected"]
+[connection signal="toggled" from="Etearth/EtearthButton" to="Etearth/EtearthButton" method="_on_toggled"]
 [connection signal="_newly_added_worker" from="Hire Hunter" to="Etearth" method="_on_hire_hunter__newly_added_worker"]
