@@ -26,7 +26,7 @@ func update_planet_info(currentworkers):
 	#for i in popup.item_count:
 			#popup.remove_item(i)
 	popup.clear()
-	if selected_planet != null or currentworkers != null:  
+	if selected_planet != null and currentworkers != null:  
 		popup.add_item(selected_planet.planet_name)
 		for i in currentworkers.size():
 			popup.add_item(currentworkers[i].name)
