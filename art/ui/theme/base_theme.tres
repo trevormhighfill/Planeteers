@@ -1,0 +1,53 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://dqpxo8eqvcpam"]
+
+[ext_resource type="FontFile" uid="uid://3a8sord2xj5k" path="res://art/ui/font/Perfect DOS VGA 437.ttf" id="1_okvvr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pb56t"]
+bg_color = Color(0.223529, 0.282353, 0.356863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dbtsk"]
+bg_color = Color(0.167969, 0.214844, 0.273438, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0l523"]
+bg_color = Color(0.117647, 0.152941, 0.2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xo85s"]
+bg_color = Color(0.125, 0.160156, 0.207031, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28rya"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.4, 0.482353, 0.576471, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_75b0g"]
+bg_color = Color(0.12549, 0.160784, 0.207843, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2atmv"]
+bg_color = Color(0.125, 0.160156, 0.207031, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glpbb"]
+bg_color = Color(0.125, 0.160156, 0.207031, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_om4p1"]
+bg_color = Color(0.239216, 0.298039, 0.368627, 1)
+
+[resource]
+default_font = ExtResource("1_okvvr")
+Button/styles/hover = SubResource("StyleBoxFlat_pb56t")
+Button/styles/normal = SubResource("StyleBoxFlat_dbtsk")
+Button/styles/pressed = SubResource("StyleBoxFlat_0l523")
+ItemList/styles/panel = SubResource("StyleBoxFlat_xo85s")
+Panel/styles/panel = SubResource("StyleBoxFlat_28rya")
+TabContainer/font_sizes/font_size = 20
+TabContainer/styles/panel = SubResource("StyleBoxFlat_75b0g")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_2atmv")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_glpbb")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_om4p1")
+TabContainer/styles/tabbar_background = null

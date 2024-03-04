@@ -2,9 +2,12 @@ extends Node2D
 
 class_name SpaceScript
 
+signal resource_update(resource_count)
+
+var unlocked_resources : Array[EnumHolder.natural_resources] = []
 
 var selected_planet : PlanetResource
-@export var planets: Array[PlanetResource] = []
+#@export var planets: Array[PlanetResource] = []
 var resource_count = {
 	EnumHolder.natural_resources.Iron: 0,
 	EnumHolder.natural_resources.Meat: 0,
@@ -38,14 +41,16 @@ func update_planet_info(currentworkers):
 	
 
 
-func _on_etearth_add_to_resource(amount,resource):
+func add_to_resource(amount,resource):
 	var resource_type : EnumHolder.natural_resources = resource.natural_resource_type
 	resource_count[resource_type] += amount
-	print(resource_count[resource_type]," ",resource.natural_resource_name," gathered")
+	get_tree().call_group("resource_panels","resource_update",resource_count)
+	#emit_signal("resource_update",resource_count)
+	#print(resource_count[resource_type]," ",resource.natural_resource_name," gathered")
 
 
-func _on_etearth_button_selected(currentworkers):
-	selected_planet = planets[0]
+func button_selected(currentworkers,planet):
+	selected_planet = planet
 	update_planet_info(currentworkers)
 
 
@@ -53,3 +58,19 @@ func button_deselected(currentworkers):
 	selected_planet = null
 	var empty = [null]
 	update_planet_info(null)
+
+
+func unlock_resource_check(worker,sender):
+	for a in worker.proficient_resources.size():
+		var found : bool = false
+		if unlocked_resources.size() == 0:
+			unlocked_resources.append(worker.proficient_resources[a].natural_resource_type)
+			found = false
+		for b in unlocked_resources.size():
+			print(unlocked_resources[b])
+			if unlocked_resources[b] == worker.proficient_resources[a].natural_resource_type:
+				found = true
+		if found == false:
+			get_tree().call_group("resource_panels","newly_unlocked_resource",worker.proficient_resources[a].natural_resource_type)
+			unlocked_resources.append(worker.proficient_resources[a].natural_resource_type)
+			sender.resource_gathering(worker.proficient_resources[a])

@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="NaturalResource" load_steps=2 format=3 uid="uid://cqmts6xivoba5"]
+[gd_resource type="Resource" script_class="NaturalResource" load_steps=3 format=3 uid="uid://cqmts6xivoba5"]
 
+[ext_resource type="Texture2D" uid="uid://dirdsoi50swff" path="res://art/sprites/workers/head.png" id="1_4wa8m"]
 [ext_resource type="Script" path="res://custom resources/natural resources/natural_resource.gd" id="1_6hnvl"]
 
 [resource]
 script = ExtResource("1_6hnvl")
 natural_resource_name = "Iron"
 natural_resource_type = 0
+natural_resource_image = ExtResource("1_4wa8m")
 base_extraction_rate = 20.0
 base_extraction_amount = 1.0
