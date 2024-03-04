@@ -10,8 +10,6 @@ func _ready():
 	get_node("Label").text = str(0)
 
 func resource_update(resource_count):
-	print(resource_count)
-	print(resource_count[resource.natural_resource_type])
 	amount = resource_count[resource.natural_resource_type]
 	get_node("Label").text = str(amount)
 	

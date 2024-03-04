@@ -8,5 +8,5 @@ script = ExtResource("1_6hnvl")
 natural_resource_name = "Iron"
 natural_resource_type = 0
 natural_resource_image = ExtResource("1_4wa8m")
-base_extraction_rate = 20.0
+base_extraction_rate = 10.0
 base_extraction_amount = 1.0

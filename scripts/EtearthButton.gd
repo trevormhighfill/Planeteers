@@ -15,7 +15,7 @@ signal selected(currentworkers : Array[Workers])
 func _on_toggled(button_pressed):
 	if button_pressed:#.connect(self._button_pressed.bind(button.button_pressed))
 		emit_signal("selected",currentworkers,planet)
-		print("toggled")
+		
 	else:
 		emit_signal("deselected",currentworkers)
-		print("not toggled")
+		

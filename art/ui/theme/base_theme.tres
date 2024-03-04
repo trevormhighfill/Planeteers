@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://dqpxo8eqvcpam"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://dqpxo8eqvcpam"]
 
 [ext_resource type="FontFile" uid="uid://3a8sord2xj5k" path="res://art/ui/font/Perfect DOS VGA 437.ttf" id="1_okvvr"]
 
@@ -29,14 +29,35 @@ corner_detail = 5
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_75b0g"]
 bg_color = Color(0.12549, 0.160784, 0.207843, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5as55"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 10
+border_width_right = 10
+border_color = Color(0.8, 0.8, 0.8, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2atmv"]
 bg_color = Color(0.125, 0.160156, 0.207031, 1)
+border_width_left = 10
+border_width_right = 10
+border_color = Color(0.8, 0.8, 0.8, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glpbb"]
 bg_color = Color(0.125, 0.160156, 0.207031, 1)
+border_width_left = 10
+border_width_right = 10
+border_color = Color(0.8, 0.8, 0.8, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_om4p1"]
 bg_color = Color(0.239216, 0.298039, 0.368627, 1)
+border_width_left = 10
+border_width_right = 10
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6xwxv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 100
+border_width_right = 100
+border_color = Color(0.8, 0.8, 0.8, 0)
 
 [resource]
 default_font = ExtResource("1_okvvr")
@@ -47,7 +68,8 @@ ItemList/styles/panel = SubResource("StyleBoxFlat_xo85s")
 Panel/styles/panel = SubResource("StyleBoxFlat_28rya")
 TabContainer/font_sizes/font_size = 20
 TabContainer/styles/panel = SubResource("StyleBoxFlat_75b0g")
+TabContainer/styles/tab_disabled = SubResource("StyleBoxFlat_5as55")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_2atmv")
 TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_glpbb")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_om4p1")
-TabContainer/styles/tabbar_background = null
+TabContainer/styles/tabbar_background = SubResource("StyleBoxFlat_6xwxv")

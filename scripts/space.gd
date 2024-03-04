@@ -63,14 +63,11 @@ func button_deselected(currentworkers):
 func unlock_resource_check(worker,sender):
 	for a in worker.proficient_resources.size():
 		var found : bool = false
-		if unlocked_resources.size() == 0:
-			unlocked_resources.append(worker.proficient_resources[a].natural_resource_type)
-			found = false
 		for b in unlocked_resources.size():
-			print(unlocked_resources[b])
+			#print(unlocked_resources[b])
 			if unlocked_resources[b] == worker.proficient_resources[a].natural_resource_type:
 				found = true
 		if found == false:
 			get_tree().call_group("resource_panels","newly_unlocked_resource",worker.proficient_resources[a].natural_resource_type)
 			unlocked_resources.append(worker.proficient_resources[a].natural_resource_type)
-			sender.resource_gathering(worker.proficient_resources[a])
+		sender.resource_gathering(worker.proficient_resources[a])

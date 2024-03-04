@@ -6,5 +6,5 @@
 script = ExtResource("1_558p5")
 natural_resource_name = "Wood"
 natural_resource_type = 3
-base_extraction_rate = 15.0
-base_extraction_amount = 5.0
+base_extraction_rate = 1.0
+base_extraction_amount = 1.0
