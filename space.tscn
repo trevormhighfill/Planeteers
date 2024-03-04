@@ -1,13 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://en4vhj2ik1g5"]
+[gd_scene load_steps=12 format=3 uid="uid://en4vhj2ik1g5"]
 
-[ext_resource type="Texture2D" uid="uid://crm80v4du5umy" path="res://icon.svg" id="1_52lar"]
 [ext_resource type="Script" path="res://scripts/space.gd" id="1_jmyn1"]
 [ext_resource type="Resource" uid="uid://dyk2nb22tonor" path="res://custom resources/planets/Etearth.tres" id="2_6xfxk"]
+[ext_resource type="Texture2D" uid="uid://bl11th0c7qi4l" path="res://art/sprites/planets/etearth.png" id="3_2i1us"]
 [ext_resource type="Script" path="res://scripts/Etearth.gd" id="4_rycmx"]
 [ext_resource type="Resource" uid="uid://dgojgmmdg548f" path="res://custom resources/workers/Hunter.tres" id="5_eiu3u"]
 [ext_resource type="Script" path="res://scripts/EtearthButton.gd" id="5_v8kvh"]
 [ext_resource type="Script" path="res://scripts/Hire Hunter.gd" id="6_aas67"]
 [ext_resource type="Resource" uid="uid://ccsxr8aiyuv5v" path="res://custom resources/workers/Miner.tres" id="7_tx1ij"]
+[ext_resource type="Script" path="res://scripts/gamebg.gd" id="9_tngcx"]
+[ext_resource type="Texture2D" uid="uid://dr5mohkvfvcsn" path="res://art/bg/deep_space.png" id="10_m2evb"]
+[ext_resource type="Texture2D" uid="uid://wllwfyi0u0fp" path="res://art/bg/stars.png" id="11_7bwyu"]
 
 [node name="Space" type="Node2D"]
 script = ExtResource("1_jmyn1")
@@ -34,12 +37,14 @@ item_0/text = "Info"
 
 [node name="Etearth" type="Sprite2D" parent="."]
 position = Vector2(541, 375)
-rotation = 0.598648
-texture = ExtResource("1_52lar")
+rotation = 6.28319
+scale = Vector2(2, 2)
+texture = ExtResource("3_2i1us")
 script = ExtResource("4_rycmx")
 planet = ExtResource("2_6xfxk")
 
 [node name="EtearthButton" type="Button" parent="Etearth"]
+modulate = Color(1, 1, 1, 0)
 offset_left = -63.0
 offset_top = -62.0
 offset_right = 64.0
@@ -65,6 +70,54 @@ size_flags_vertical = 3
 text = "Hire Miner"
 script = ExtResource("6_aas67")
 hireable_worker = ExtResource("7_tx1ij")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(1, 0)
+script = ExtResource("9_tngcx")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1151, 0)
+
+[node name="DeepSpace" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(575.5, 324)
+scale = Vector2(9.00781, 5.0625)
+texture = ExtResource("10_m2evb")
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+rotation = -6.28319
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1151, 0)
+
+[node name="Stars" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(192, 195)
+scale = Vector2(3, 3)
+texture = ExtResource("11_7bwyu")
+
+[node name="Stars2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(192, 571)
+scale = Vector2(3, 3)
+texture = ExtResource("11_7bwyu")
+
+[node name="Stars3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(562, 193)
+scale = Vector2(3, 3)
+texture = ExtResource("11_7bwyu")
+
+[node name="Stars4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(562, 569)
+scale = Vector2(3, 3)
+texture = ExtResource("11_7bwyu")
+
+[node name="Stars5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(953, 196)
+scale = Vector2(3, 3)
+texture = ExtResource("11_7bwyu")
+
+[node name="Stars6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(953, 572)
+scale = Vector2(3, 3)
+texture = ExtResource("11_7bwyu")
 
 [connection signal="toggled" from="Infobutton" to="." method="_on_infobutton_toggled"]
 [connection signal="add_to_resource" from="Etearth" to="." method="_on_etearth_add_to_resource"]

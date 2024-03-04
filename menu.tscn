@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bost2aru3mj5u"]
+[gd_scene load_steps=4 format=3 uid="uid://bost2aru3mj5u"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_1qv7c"]
+[ext_resource type="PackedScene" uid="uid://u7unhebjgukx" path="res://parallax_background.tscn" id="2_kix0y"]
+[ext_resource type="Texture2D" uid="uid://ira6h12e7wmw" path="res://art/sprites/title.png" id="5_3ueg8"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_1qv7c")
@@ -18,6 +20,13 @@ offset_top = 375.0
 offset_right = 716.0
 offset_bottom = 413.0
 text = "Quit"
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_kix0y")]
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(572, 106)
+scale = Vector2(15, 15)
+texture = ExtResource("5_3ueg8")
 
 [connection signal="button_down" from="Load" to="." method="_on_load_button_down"]
 [connection signal="button_down" from="Quit" to="." method="_on_quit_button_down"]

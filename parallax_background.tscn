@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://u7unhebjgukx"]
+
+[ext_resource type="Script" path="res://scripts/menubg.gd" id="1_62d81"]
+[ext_resource type="Texture2D" uid="uid://dr5mohkvfvcsn" path="res://art/bg/deep_space.png" id="2_ibcm3"]
+[ext_resource type="Texture2D" uid="uid://wllwfyi0u0fp" path="res://art/bg/stars.png" id="3_velk4"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+scroll_offset = Vector2(1, 0)
+script = ExtResource("1_62d81")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1151, 0)
+
+[node name="DeepSpace" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(575.5, 324)
+scale = Vector2(9.00781, 5.0625)
+texture = ExtResource("2_ibcm3")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+rotation = -6.28319
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1151, 0)
+
+[node name="Stars" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(192, 195)
+scale = Vector2(3, 3)
+texture = ExtResource("3_velk4")
+
+[node name="Stars2" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(192, 571)
+scale = Vector2(3, 3)
+texture = ExtResource("3_velk4")
+
+[node name="Stars3" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(562, 193)
+scale = Vector2(3, 3)
+texture = ExtResource("3_velk4")
+
+[node name="Stars4" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(562, 569)
+scale = Vector2(3, 3)
+texture = ExtResource("3_velk4")
+
+[node name="Stars5" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(953, 196)
+scale = Vector2(3, 3)
+texture = ExtResource("3_velk4")
+
+[node name="Stars6" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(953, 572)
+scale = Vector2(3, 3)
+texture = ExtResource("3_velk4")

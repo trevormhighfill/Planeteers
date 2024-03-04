@@ -31,7 +31,7 @@ func _newly_added_worker(worker : Workers):
 		for b in unlocked_resources.size():
 			print(unlocked_resources[b])
 			if unlocked_resources[b] == worker.proficient_resources[a].natural_resource_type:
-				true
+				found = true
 		if found == false:
 			unlocked_resources.append(worker.proficient_resources[a].natural_resource_type)
 			resource_gathering(worker.proficient_resources[a])
