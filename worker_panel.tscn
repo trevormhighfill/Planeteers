@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6f4n14kcgsub"]
+
+[ext_resource type="Theme" uid="uid://dqpxo8eqvcpam" path="res://art/ui/theme/base_theme.tres" id="1_7pxgn"]
+[ext_resource type="PackedScene" uid="uid://bmk35554k8f36" path="res://worker_icon.tscn" id="2_0wmjo"]
+[ext_resource type="Script" path="res://worker_panel.gd" id="2_g0sp6"]
+
+[node name="worker_panel" type="Label"]
+offset_right = 36.0
+offset_bottom = 19.0
+theme = ExtResource("1_7pxgn")
+text = "Name"
+script = ExtResource("2_g0sp6")
+
+[node name="worker_icon" parent="." instance=ExtResource("2_0wmjo")]
+offset_left = 63.0
+offset_top = 58.0
+offset_right = 63.0
+offset_bottom = 58.0
+
+[node name="type" type="Label" parent="."]
+layout_mode = 0
+offset_top = 18.0
+offset_right = 40.0
+offset_bottom = 34.0
+text = "Miner"
+
+[node name="level" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 36.0
+offset_right = 41.0
+offset_bottom = 52.0
+text = "Level:1"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 83.0
+offset_right = 61.0
+offset_bottom = 99.0
+text = "Hire"
+
+[connection signal="button_down" from="Button" to="." method="button_down"]

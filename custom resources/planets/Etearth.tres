@@ -10,5 +10,6 @@
 [resource]
 script = ExtResource("6_ytuvg")
 planet_name = "Etearth"
+planet_type = 0
 planet_natural_resources = Array[Resource("res://custom resources/natural resources/natural_resource.gd")]([ExtResource("1_62yba"), ExtResource("4_myxqn"), ExtResource("2_6yonh"), ExtResource("5_5kpfi"), ExtResource("3_sb48y")])
 natural_resource_yield = Array[float]([1.5, 1.0, 1.0, 1.0, 1.0])

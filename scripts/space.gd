@@ -38,8 +38,6 @@ func update_planet_info(currentworkers):
 #func _on_etearth_button_button_down(currentworkers:Array[Workers]):
 	#selected_planet = planets[0]
 	#update_planet_info(currentworkers)
-	
-
 
 func add_to_resource(amount,resource):
 	var resource_type : EnumHolder.natural_resources = resource.natural_resource_type
@@ -48,17 +46,14 @@ func add_to_resource(amount,resource):
 	#emit_signal("resource_update",resource_count)
 	#print(resource_count[resource_type]," ",resource.natural_resource_name," gathered")
 
-
 func button_selected(currentworkers,planet):
 	selected_planet = planet
 	update_planet_info(currentworkers)
-
 
 func button_deselected(currentworkers):
 	selected_planet = null
 	var empty = [null]
 	update_planet_info(null)
-
 
 func unlock_resource_check(worker,sender):
 	for a in worker.proficient_resources.size():
@@ -71,3 +66,7 @@ func unlock_resource_check(worker,sender):
 			get_tree().call_group("resource_panels","newly_unlocked_resource",worker.proficient_resources[a].natural_resource_type)
 			unlocked_resources.append(worker.proficient_resources[a].natural_resource_type)
 		sender.resource_gathering(worker.proficient_resources[a])
+
+func _newly_added_worker(worker):
+	if selected_planet:
+		get_tree().call_group("Planets","incoming_worker",worker,selected_planet.planet_type)

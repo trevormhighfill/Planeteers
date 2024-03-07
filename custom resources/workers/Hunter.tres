@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_xjklv")
-name = "Tom"
+name = "Hunter"
 proficient_resources = Array[Resource("res://custom resources/natural resources/natural_resource.gd")]([ExtResource("1_or0b4")])
 resource_level = 1

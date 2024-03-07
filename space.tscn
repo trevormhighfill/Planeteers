@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://scripts/Etearth.gd" id="4_rycmx"]
 [ext_resource type="Resource" uid="uid://dgojgmmdg548f" path="res://custom resources/workers/Hunter.tres" id="5_eiu3u"]
 [ext_resource type="Script" path="res://scripts/EtearthButton.gd" id="5_v8kvh"]
-[ext_resource type="Script" path="res://scripts/Hire Hunter.gd" id="6_aas67"]
 [ext_resource type="Resource" uid="uid://ccsxr8aiyuv5v" path="res://custom resources/workers/Miner.tres" id="7_tx1ij"]
 [ext_resource type="Script" path="res://scripts/gamebg.gd" id="9_tngcx"]
 [ext_resource type="Texture2D" uid="uid://dr5mohkvfvcsn" path="res://art/bg/deep_space.png" id="10_m2evb"]
@@ -17,8 +16,9 @@
 [ext_resource type="Resource" uid="uid://cqmts6xivoba5" path="res://custom resources/natural resources/Iron.tres" id="14_c5qii"]
 [ext_resource type="Resource" uid="uid://cccwrx11nmvvh" path="res://custom resources/natural resources/Meat.tres" id="16_3xt0q"]
 [ext_resource type="Resource" uid="uid://ca6sffc321rm" path="res://custom resources/natural resources/Stone.tres" id="17_5coso"]
+[ext_resource type="PackedScene" uid="uid://b6f4n14kcgsub" path="res://worker_panel.tscn" id="18_0368l"]
 
-[node name="Space" type="Node2D"]
+[node name="Space" type="Node2D" groups=["Main"]]
 script = ExtResource("1_jmyn1")
 
 [node name="Infobutton" type="Button" parent="."]
@@ -42,7 +42,7 @@ max_text_lines = 9000
 item_count = 1
 item_0/text = "Info"
 
-[node name="Etearth" type="Sprite2D" parent="."]
+[node name="Etearth" type="Sprite2D" parent="." groups=["Planets"]]
 position = Vector2(541, 375)
 rotation = 6.28319
 scale = Vector2(2, 2)
@@ -58,27 +58,6 @@ offset_right = 64.0
 offset_bottom = 65.0
 toggle_mode = true
 script = ExtResource("5_v8kvh")
-
-[node name="Hire Hunter" type="Button" parent="."]
-offset_right = 144.0
-offset_bottom = 31.0
-theme = ExtResource("12_fxr1q")
-text = "Hire Hunter"
-script = ExtResource("6_aas67")
-hireable_worker = ExtResource("5_eiu3u")
-metadata/_edit_use_anchors_ = true
-
-[node name="Hire Miner" type="Button" parent="."]
-offset_left = -3.0
-offset_top = 33.0
-offset_right = 142.0
-offset_bottom = 98.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("12_fxr1q")
-text = "Hire Miner"
-script = ExtResource("6_aas67")
-hireable_worker = ExtResource("7_tx1ij")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_offset = Vector2(1, 0)
@@ -129,7 +108,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("11_7bwyu")
 
 [node name="TabContainer" type="TabContainer" parent="."]
-z_index = -100
+z_index = -10
 offset_top = 514.0
 offset_right = 1150.0
 offset_bottom = 648.0
@@ -175,6 +154,28 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Hire"]
+clip_contents = false
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 1138.0
+offset_bottom = 100.0
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Hire/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+script = ExtResource("13_k0gia")
+
+[node name="worker_panel" parent="TabContainer/Hire/ScrollContainer/HBoxContainer" instance=ExtResource("18_0368l")]
+layout_mode = 2
+worker = ExtResource("7_tx1ij")
+
+[node name="worker_panel2" parent="TabContainer/Hire/ScrollContainer/HBoxContainer" instance=ExtResource("18_0368l")]
+layout_mode = 2
+worker = ExtResource("5_eiu3u")
+
 [connection signal="resource_update" from="." to="TabContainer/Resources/ScrollContainer/HBoxContainer" method="resource_update"]
 [connection signal="toggled" from="Infobutton" to="." method="_on_infobutton_toggled"]
 [connection signal="add_to_resource" from="Etearth" to="." method="add_to_resource"]
@@ -183,5 +184,3 @@ layout_mode = 2
 [connection signal="deselected" from="Etearth/EtearthButton" to="." method="button_deselected"]
 [connection signal="selected" from="Etearth/EtearthButton" to="." method="button_selected"]
 [connection signal="toggled" from="Etearth/EtearthButton" to="Etearth/EtearthButton" method="_on_toggled"]
-[connection signal="_newly_added_worker" from="Hire Hunter" to="Etearth" method="_newly_added_worker"]
-[connection signal="_newly_added_worker" from="Hire Miner" to="Etearth" method="_newly_added_worker"]

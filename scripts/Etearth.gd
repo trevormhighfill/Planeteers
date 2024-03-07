@@ -29,3 +29,7 @@ func _newly_added_worker(worker : Workers):
 	#print("Hired ",worker.name, " and the employment team is ", current_workers.size())
 	pass # Replace with function body.
 
+func incoming_worker(worker,selected_planet_type):
+	if selected_planet_type == planet.planet_type:
+		_newly_added_worker(worker)
+	

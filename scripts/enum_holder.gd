@@ -9,3 +9,7 @@ enum natural_resources {
 	Water,
 	Lava
 	}
+
+enum planets{
+	etearth
+}

@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmk35554k8f36"]
+
+[ext_resource type="Texture2D" uid="uid://x306ggy4bb47" path="res://art/sprites/workers/body.png" id="1_20bhv"]
+[ext_resource type="Script" path="res://scripts/worker_icon_random.gd" id="1_ofeii"]
+[ext_resource type="Texture2D" uid="uid://f8nn2bfbfr1y" path="res://art/sprites/workers/eyes.png" id="2_8f8rr"]
+[ext_resource type="Texture2D" uid="uid://dcvhb84s8hyju" path="res://art/sprites/workers/face2.png" id="3_mj8ek"]
+[ext_resource type="Texture2D" uid="uid://dirdsoi50swff" path="res://art/sprites/workers/head.png" id="4_gyg32"]
+
+[node name="worker_icon" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ofeii")
+
+[node name="head" type="TextureRect" parent="."]
+modulate = Color(1, 0.760784, 0.631373, 1)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_gyg32")
+
+[node name="body" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_20bhv")
+
+[node name="mouth" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_mj8ek")
+
+[node name="eyes" type="TextureRect" parent="."]
+modulate = Color(1, 0, 0.0166664, 1)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_8f8rr")
