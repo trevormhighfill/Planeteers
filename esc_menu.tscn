@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://dh20qk4r8yfg3"]
+
+[ext_resource type="Theme" uid="uid://dqpxo8eqvcpam" path="res://art/ui/theme/base_theme.tres" id="1_01kum"]
+[ext_resource type="Script" path="res://scripts/esc_menu.gd" id="1_r1dua"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3bi2"]
+bg_color = Color(0, 0, 0, 0.65098)
+
+[node name="esc_menu" type="Panel"]
+visible = false
+offset_left = 387.0
+offset_top = 141.0
+offset_right = 685.0
+offset_bottom = 449.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f3bi2")
+script = ExtResource("1_r1dua")
+
+[node name="menu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 118.0
+offset_right = 266.0
+offset_bottom = 190.0
+theme = ExtResource("1_01kum")
+text = "Quit to menu"
+
+[node name="desktop" type="Button" parent="."]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 206.0
+offset_right = 267.0
+offset_bottom = 278.0
+theme = ExtResource("1_01kum")
+text = "Quit to desktop"
+
+[connection signal="button_down" from="menu" to="." method="to_menu"]
+[connection signal="button_down" from="desktop" to="." method="to_desktop"]

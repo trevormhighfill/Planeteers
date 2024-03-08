@@ -17,6 +17,16 @@ var resource_count = {
 	EnumHolder.natural_resources.Wood: 0
 	}
 
+var esc_held_down : bool = false
+
+func _process(delta):
+	if Input.is_action_pressed("escape" ) && !esc_held_down:
+		get_node("esc_menu").visible = !get_node("esc_menu").visible
+		esc_held_down = true
+	elif Input.is_action_just_pressed("escape"):
+		esc_held_down = false
+	
+
 func _on_infobutton_toggled(button_pressed):
 	var popup = $Infobutton/Panel
 	if button_pressed == true:
