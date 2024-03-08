@@ -2,14 +2,14 @@
 
 [ext_resource type="Theme" uid="uid://dqpxo8eqvcpam" path="res://art/ui/theme/base_theme.tres" id="1_7pxgn"]
 [ext_resource type="PackedScene" uid="uid://bmk35554k8f36" path="res://worker_icon.tscn" id="2_0wmjo"]
-[ext_resource type="Script" path="res://worker_panel.gd" id="2_g0sp6"]
+[ext_resource type="Script" path="res://scripts/worker_panel.gd" id="2_6vksf"]
 
 [node name="worker_panel" type="Label"]
 offset_right = 36.0
 offset_bottom = 19.0
 theme = ExtResource("1_7pxgn")
 text = "Name"
-script = ExtResource("2_g0sp6")
+script = ExtResource("2_6vksf")
 
 [node name="worker_icon" parent="." instance=ExtResource("2_0wmjo")]
 offset_left = 63.0

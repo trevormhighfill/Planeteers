@@ -18,26 +18,24 @@ var resource_count = {
 	}
 
 func _on_infobutton_toggled(button_pressed):
-	var popup = $Infobutton/ItemList
+	var popup = $Infobutton/Panel
 	if button_pressed == true:
 		popup.visible = true
 	else:
 		popup.visible = false
 
 func update_planet_info(currentworkers):
-	var popup = $Infobutton/ItemList
+	var popup = $Infobutton/Panel
 	#for i in popup.item_count:
 			#popup.remove_item(i)
-	popup.clear()
-	if selected_planet != null and currentworkers != null:  
-		popup.add_item(selected_planet.planet_name)
-		for i in currentworkers.size():
-			popup.add_item(currentworkers[i].name)
-	else:
-		popup.add_item("Info")
-#func _on_etearth_button_button_down(currentworkers:Array[Workers]):
-	#selected_planet = planets[0]
-	#update_planet_info(currentworkers)
+#	popup.clear()
+#	if selected_planet != null and currentworkers != null:  
+#		popup.add_item(selected_planet.planet_name)
+#		for i in currentworkers.size():
+#			popup.add_item(currentworkers[i].name)
+#	else:
+#		popup.add_item("Info")
+
 
 func add_to_resource(amount,resource):
 	var resource_type : EnumHolder.natural_resources = resource.natural_resource_type
@@ -67,6 +65,6 @@ func unlock_resource_check(worker,sender):
 			unlocked_resources.append(worker.proficient_resources[a].natural_resource_type)
 		sender.resource_gathering(worker.proficient_resources[a])
 
-func _newly_added_worker(worker):
+func _newly_added_worker(worker_name,worker,skin_color,eye_color):
 	if selected_planet:
-		get_tree().call_group("Planets","incoming_worker",worker,selected_planet.planet_type)
+		get_tree().call_group("Planets","incoming_worker",selected_planet.planet_type,worker_name,worker,skin_color,eye_color)

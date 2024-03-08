@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://en4vhj2ik1g5"]
+[gd_scene load_steps=19 format=3 uid="uid://en4vhj2ik1g5"]
 
 [ext_resource type="Script" path="res://scripts/space.gd" id="1_jmyn1"]
 [ext_resource type="Resource" uid="uid://dyk2nb22tonor" path="res://custom resources/planets/Etearth.tres" id="2_6xfxk"]
@@ -18,10 +18,15 @@
 [ext_resource type="Resource" uid="uid://ca6sffc321rm" path="res://custom resources/natural resources/Stone.tres" id="17_5coso"]
 [ext_resource type="PackedScene" uid="uid://b6f4n14kcgsub" path="res://worker_panel.tscn" id="18_0368l"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_giqoe"]
+bg_color = Color(0.398438, 0.480469, 0.574219, 1)
+
 [node name="Space" type="Node2D" groups=["Main"]]
 script = ExtResource("1_jmyn1")
 
 [node name="Infobutton" type="Button" parent="."]
+z_index = 10
+z_as_relative = false
 offset_left = 970.0
 offset_top = -1.0
 offset_right = 1155.0
@@ -30,17 +35,26 @@ theme = ExtResource("12_fxr1q")
 toggle_mode = true
 text = "PLANET INFORMATION"
 
-[node name="ItemList" type="ItemList" parent="Infobutton"]
-visible = false
+[node name="Panel" type="Panel" parent="Infobutton"]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 39.0
-offset_right = 173.0
-offset_bottom = 409.0
-theme = ExtResource("12_fxr1q")
-max_text_lines = 9000
-item_count = 1
-item_0/text = "Info"
+offset_left = -780.0
+offset_top = 68.0
+offset_right = -19.0
+offset_bottom = 463.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_giqoe")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Infobutton/Panel"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 15.0
+offset_right = 765.0
+offset_bottom = 383.0
+scroll_deadzone = 150
+
+[node name="GridContainer" type="GridContainer" parent="Infobutton/Panel/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 170
+columns = 4
 
 [node name="Etearth" type="Sprite2D" parent="." groups=["Planets"]]
 position = Vector2(541, 375)

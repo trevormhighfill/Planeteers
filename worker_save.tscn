@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://rt5g0gom7m3d"]
+
+[ext_resource type="Theme" uid="uid://dqpxo8eqvcpam" path="res://art/ui/theme/base_theme.tres" id="1_mbt2l"]
+[ext_resource type="Script" path="res://scripts/Control.gd" id="2_gxhgr"]
+[ext_resource type="Texture2D" uid="uid://x306ggy4bb47" path="res://art/sprites/workers/body.png" id="3_8kgqq"]
+[ext_resource type="Texture2D" uid="uid://dirdsoi50swff" path="res://art/sprites/workers/head.png" id="4_khvol"]
+[ext_resource type="Texture2D" uid="uid://f8nn2bfbfr1y" path="res://art/sprites/workers/eyes.png" id="5_uxx3h"]
+[ext_resource type="Texture2D" uid="uid://dcvhb84s8hyju" path="res://art/sprites/workers/face2.png" id="6_mocwi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37m6y"]
+bg_color = Color(0.32549, 0.4, 0.486275, 1)
+
+[node name="worker_save" type="Control" groups=["worker_save"]]
+custom_minimum_size = Vector2(0, 115)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -991.0
+offset_bottom = -533.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_mbt2l")
+script = ExtResource("2_gxhgr")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 161.0
+offset_bottom = 115.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_37m6y")
+
+[node name="name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 59.0
+offset_bottom = 34.0
+
+[node name="body" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 73.0
+offset_right = 160.0
+offset_bottom = 113.0
+texture = ExtResource("3_8kgqq")
+
+[node name="head" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 73.0
+offset_right = 160.0
+offset_bottom = 113.0
+texture = ExtResource("4_khvol")
+
+[node name="eyes" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 73.0
+offset_right = 160.0
+offset_bottom = 113.0
+texture = ExtResource("5_uxx3h")
+
+[node name="mouth" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 73.0
+offset_right = 160.0
+offset_bottom = 113.0
+texture = ExtResource("6_mocwi")
+
+[node name="job" type="Label" parent="."]
+layout_mode = 0
+offset_top = 25.0
+offset_right = 162.0
+offset_bottom = 44.0
+text = "Miner"
+
+[node name="rating" type="Label" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 96.0
+offset_right = 111.0
+offset_bottom = 115.0
+text = "Job level: 4"

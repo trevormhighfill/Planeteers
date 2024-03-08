@@ -5,7 +5,7 @@ signal _newly_added_worker(worker)
 @export var worker : Workers
 @onready var type = get_node("type")
 @onready var level = get_node("level")
-var worker_name
+var worker_name : String
 var start_name_combinations = [
 	"Ja",
 	"Ko",
@@ -55,5 +55,5 @@ func _process(delta):
 
 
 func button_down():
-	get_tree().call_group("Main","_newly_added_worker",worker)
+	get_tree().call_group("Main","_newly_added_worker",worker_name,worker,get_node("worker_icon").skin_color,get_node("worker_icon").eye_color)
 	pass # Replace with function body.
