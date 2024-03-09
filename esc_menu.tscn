@@ -31,7 +31,7 @@ offset_top = 206.0
 offset_right = 267.0
 offset_bottom = 278.0
 theme = ExtResource("1_01kum")
-text = "Quit to desktop"
+text = "Quit to desktop "
 
 [connection signal="button_down" from="menu" to="." method="to_menu"]
 [connection signal="button_down" from="desktop" to="." method="to_desktop"]

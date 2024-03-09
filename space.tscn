@@ -47,16 +47,15 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_giqoe")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Infobutton/Panel"]
 layout_mode = 0
-offset_left = 46.0
-offset_top = 15.0
-offset_right = 765.0
-offset_bottom = 383.0
+offset_left = 25.0
+offset_top = 11.0
+offset_right = 744.0
+offset_bottom = 379.0
 scroll_deadzone = 150
 
 [node name="GridContainer" type="GridContainer" parent="Infobutton/Panel/ScrollContainer"]
 layout_mode = 2
-theme_override_constants/h_separation = 170
-columns = 4
+columns = 6
 
 [node name="Etearth" type="Sprite2D" parent="." groups=["Planets"]]
 position = Vector2(541, 375)

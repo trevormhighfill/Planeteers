@@ -11,7 +11,7 @@
 bg_color = Color(0.32549, 0.4, 0.486275, 1)
 
 [node name="worker_save" type="Control" groups=["worker_save"]]
-custom_minimum_size = Vector2(0, 115)
+custom_minimum_size = Vector2(115, 115)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,7 +25,7 @@ script = ExtResource("2_gxhgr")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 161.0
+offset_right = 115.0
 offset_bottom = 115.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_37m6y")
 
@@ -34,38 +34,38 @@ layout_mode = 0
 offset_left = 1.0
 offset_top = -1.0
 offset_right = 59.0
-offset_bottom = 34.0
+offset_bottom = 26.0
 
 [node name="body" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 120.0
-offset_top = 73.0
-offset_right = 160.0
-offset_bottom = 113.0
+offset_left = 75.0
+offset_top = 74.0
+offset_right = 115.0
+offset_bottom = 114.0
 texture = ExtResource("3_8kgqq")
 
 [node name="head" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 120.0
-offset_top = 73.0
-offset_right = 160.0
-offset_bottom = 113.0
+offset_left = 75.0
+offset_top = 74.0
+offset_right = 115.0
+offset_bottom = 114.0
 texture = ExtResource("4_khvol")
 
 [node name="eyes" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 120.0
-offset_top = 73.0
-offset_right = 160.0
-offset_bottom = 113.0
+offset_left = 75.0
+offset_top = 74.0
+offset_right = 115.0
+offset_bottom = 114.0
 texture = ExtResource("5_uxx3h")
 
 [node name="mouth" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 120.0
-offset_top = 73.0
-offset_right = 160.0
-offset_bottom = 113.0
+offset_left = 75.0
+offset_top = 74.0
+offset_right = 115.0
+offset_bottom = 114.0
 texture = ExtResource("6_mocwi")
 
 [node name="job" type="Label" parent="."]
@@ -77,8 +77,17 @@ text = "Miner"
 
 [node name="rating" type="Label" parent="."]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 96.0
-offset_right = 111.0
-offset_bottom = 115.0
-text = "Job level: 4"
+offset_top = 42.0
+offset_right = 108.0
+offset_bottom = 61.0
+text = "Level: 4"
+
+[node name="fire" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 94.0
+offset_right = 43.0
+offset_bottom = 113.0
+text = "Fire"
+
+[connection signal="button_down" from="fire" to="." method="fire_worker"]

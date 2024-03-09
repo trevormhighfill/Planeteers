@@ -34,7 +34,7 @@ func _on_infobutton_toggled(button_pressed):
 	else:
 		popup.visible = false
 
-func update_planet_info(currentworkers):
+func update_planet_info():
 	var popup = $Infobutton/Panel
 	#for i in popup.item_count:
 			#popup.remove_item(i)
@@ -56,12 +56,9 @@ func add_to_resource(amount,resource):
 
 func button_selected(currentworkers,planet):
 	selected_planet = planet
-	update_planet_info(currentworkers)
 
 func button_deselected(currentworkers):
 	selected_planet = null
-	var empty = [null]
-	update_planet_info(null)
 
 func unlock_resource_check(worker,sender):
 	for a in worker.proficient_resources.size():
@@ -73,7 +70,8 @@ func unlock_resource_check(worker,sender):
 		if found == false:
 			get_tree().call_group("resource_panels","newly_unlocked_resource",worker.proficient_resources[a].natural_resource_type)
 			unlocked_resources.append(worker.proficient_resources[a].natural_resource_type)
-		sender.resource_gathering(worker.proficient_resources[a])
+		print(worker)
+		sender.resource_gathering(worker.proficient_resources[a],worker)
 
 func _newly_added_worker(worker_name,worker,skin_color,eye_color):
 	if selected_planet:

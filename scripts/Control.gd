@@ -4,6 +4,7 @@ var worker_name : String
 var worker : Workers
 var skin_color : Color
 var eye_color : Color 
+var belonging_planet : EnumHolder.planets
 
 @onready var ui_name = get_node("name")
 @onready var ui_job = get_node("job")
@@ -13,8 +14,9 @@ var eye_color : Color
 @onready var ui_eyes = get_node("eyes")
 @onready var ui_mouth = get_node("mouth")
 
-func begin(func_worker_name : String,func_worker : Workers,func_skin_color : Color, func_eye_color : Color):
+func begin(func_worker_name : String,func_worker : Workers,func_skin_color : Color, func_eye_color : Color,func_belonging_planet : EnumHolder.planets):
 	if worker == null:
+		belonging_planet = func_belonging_planet
 		worker_name = func_worker_name
 		print(worker_name)
 		worker = func_worker
@@ -24,7 +26,11 @@ func begin(func_worker_name : String,func_worker : Workers,func_skin_color : Col
 		ui_name.text = worker_name
 		print(ui_name)
 		ui_job.text = worker.job
-		ui_rating.text = str("Job level: ",worker.resource_level)
+		ui_rating.text = str("Level: ",worker.resource_level)
 		ui_head.modulate = skin_color
 		ui_eyes.modulate = eye_color
 
+
+
+func fire_worker():
+	get_tree().call_group("Planets","fire_worker",self,worker,belonging_planet)
