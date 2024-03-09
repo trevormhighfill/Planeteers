@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://x2blsff26ymr"]
+
+[ext_resource type="Texture2D" uid="uid://bl11th0c7qi4l" path="res://art/sprites/planets/etearth.png" id="1_i1xsq"]
+[ext_resource type="Script" path="res://scripts/Etearth.gd" id="2_ioyjl"]
+[ext_resource type="Resource" uid="uid://dyk2nb22tonor" path="res://custom resources/planets/Etearth.tres" id="3_whl5q"]
+
+[node name="Planet" type="Sprite2D" groups=["Planets"]]
+position = Vector2(541, 375)
+rotation = 6.28319
+scale = Vector2(2, 2)
+texture = ExtResource("1_i1xsq")
+script = ExtResource("2_ioyjl")
+planet = ExtResource("3_whl5q")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -63.0
+offset_top = -62.0
+offset_right = 64.0
+offset_bottom = 65.0
+mouse_filter = 1
+toggle_mode = true
+
+[connection signal="button_down" from="Button" to="." method="button_down"]

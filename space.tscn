@@ -1,11 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://en4vhj2ik1g5"]
+[gd_scene load_steps=22 format=3 uid="uid://en4vhj2ik1g5"]
 
 [ext_resource type="Script" path="res://scripts/space.gd" id="1_jmyn1"]
-[ext_resource type="Resource" uid="uid://dyk2nb22tonor" path="res://custom resources/planets/Etearth.tres" id="2_6xfxk"]
-[ext_resource type="Texture2D" uid="uid://bl11th0c7qi4l" path="res://art/sprites/planets/etearth.png" id="3_2i1us"]
-[ext_resource type="Script" path="res://scripts/Etearth.gd" id="4_rycmx"]
+[ext_resource type="PackedScene" uid="uid://x2blsff26ymr" path="res://planet.tscn" id="3_7laar"]
+[ext_resource type="Texture2D" uid="uid://38yxqpr0ibrs" path="res://art/sprites/planets/soonlar.png" id="4_clumr"]
+[ext_resource type="Resource" uid="uid://depkhsa865wch" path="res://custom resources/planets/Josklet.tres" id="4_s6tc8"]
 [ext_resource type="Resource" uid="uid://dgojgmmdg548f" path="res://custom resources/workers/Hunter.tres" id="5_eiu3u"]
-[ext_resource type="Script" path="res://scripts/EtearthButton.gd" id="5_v8kvh"]
+[ext_resource type="Resource" uid="uid://cpqgk38a4by6x" path="res://custom resources/planets/Soonlar.tres" id="6_g1deg"]
+[ext_resource type="Script" path="res://scripts/Camera_movement.gd" id="7_mrhfo"]
 [ext_resource type="Resource" uid="uid://ccsxr8aiyuv5v" path="res://custom resources/workers/Miner.tres" id="7_tx1ij"]
 [ext_resource type="Script" path="res://scripts/gamebg.gd" id="9_tngcx"]
 [ext_resource type="Texture2D" uid="uid://dr5mohkvfvcsn" path="res://art/bg/deep_space.png" id="10_m2evb"]
@@ -15,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://tf1so4kth0ld" path="res://resourcepanel.tscn" id="13_u40ik"]
 [ext_resource type="Resource" uid="uid://cqmts6xivoba5" path="res://custom resources/natural resources/Iron.tres" id="14_c5qii"]
 [ext_resource type="Resource" uid="uid://cccwrx11nmvvh" path="res://custom resources/natural resources/Meat.tres" id="16_3xt0q"]
+[ext_resource type="Texture2D" uid="uid://d1o4o8i30xpsa" path="res://art/sprites/planets/josklet.png" id="16_g2bfd"]
 [ext_resource type="Resource" uid="uid://ca6sffc321rm" path="res://custom resources/natural resources/Stone.tres" id="17_5coso"]
 [ext_resource type="PackedScene" uid="uid://b6f4n14kcgsub" path="res://worker_panel.tscn" id="18_0368l"]
 [ext_resource type="PackedScene" uid="uid://dh20qk4r8yfg3" path="res://esc_menu.tscn" id="18_brnf3"]
@@ -25,61 +27,28 @@ bg_color = Color(0.398438, 0.480469, 0.574219, 1)
 [node name="Space" type="Node2D" groups=["Main"]]
 script = ExtResource("1_jmyn1")
 
-[node name="Infobutton" type="Button" parent="."]
-z_index = 10
-z_as_relative = false
-offset_left = 970.0
-offset_top = -1.0
-offset_right = 1155.0
-offset_bottom = 33.0
-theme = ExtResource("12_fxr1q")
-toggle_mode = true
-text = "PLANET INFORMATION"
+[node name="Etearth" parent="." instance=ExtResource("3_7laar")]
+position = Vector2(1433.74, 314.745)
+scale = Vector2(0.836122, 0.836122)
 
-[node name="Panel" type="Panel" parent="Infobutton"]
-visible = false
-layout_mode = 0
-offset_left = -780.0
-offset_top = 68.0
-offset_right = -19.0
-offset_bottom = 463.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_giqoe")
+[node name="Josklet" parent="." instance=ExtResource("3_7laar")]
+position = Vector2(971, 522)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_g2bfd")
+planet = ExtResource("4_s6tc8")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Infobutton/Panel"]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 11.0
-offset_right = 744.0
-offset_bottom = 379.0
-scroll_deadzone = 150
-
-[node name="GridContainer" type="GridContainer" parent="Infobutton/Panel/ScrollContainer"]
-layout_mode = 2
-columns = 6
-
-[node name="Etearth" type="Sprite2D" parent="." groups=["Planets"]]
-position = Vector2(541, 375)
-rotation = 6.28319
-scale = Vector2(2, 2)
-texture = ExtResource("3_2i1us")
-script = ExtResource("4_rycmx")
-planet = ExtResource("2_6xfxk")
-
-[node name="EtearthButton" type="Button" parent="Etearth"]
-modulate = Color(1, 1, 1, 0)
-offset_left = -63.0
-offset_top = -62.0
-offset_right = 64.0
-offset_bottom = 65.0
-toggle_mode = true
-script = ExtResource("5_v8kvh")
+[node name="Soonlar" parent="." instance=ExtResource("3_7laar")]
+position = Vector2(1090, 670)
+rotation = 4.46638e-06
+texture = ExtResource("4_clumr")
+planet = ExtResource("6_g1deg")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_offset = Vector2(1, 0)
 script = ExtResource("9_tngcx")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(1151, 0)
+motion_mirroring = Vector2(1151, 647)
 
 [node name="DeepSpace" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(575.5, 324)
@@ -89,8 +58,8 @@ metadata/_edit_lock_ = true
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 rotation = -6.28319
-motion_scale = Vector2(0.7, 1)
-motion_mirroring = Vector2(1151, 0)
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(1151, 760)
 
 [node name="Stars" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(192, 195)
@@ -122,17 +91,27 @@ position = Vector2(953, 572)
 scale = Vector2(3, 3)
 texture = ExtResource("11_7bwyu")
 
-[node name="TabContainer" type="TabContainer" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1428, 308)
+limit_left = 0
+limit_top = 0
+limit_right = 2302
+limit_bottom = 1295
+script = ExtResource("7_mrhfo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer"]
 z_index = -10
 offset_top = 514.0
 offset_right = 1150.0
 offset_bottom = 648.0
 theme = ExtResource("12_fxr1q")
 
-[node name="Resources" type="TabBar" parent="TabContainer"]
+[node name="Resources" type="TabBar" parent="CanvasLayer/TabContainer"]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Resources"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/TabContainer/Resources"]
 clip_contents = false
 layout_mode = 0
 offset_left = 8.0
@@ -141,35 +120,35 @@ offset_right = 1138.0
 offset_bottom = 100.0
 metadata/_edit_lock_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Resources/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TabContainer/Resources/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = 100
 script = ExtResource("13_k0gia")
 
-[node name="resourcepanel" parent="TabContainer/Resources/ScrollContainer/HBoxContainer" groups=["resource_panels"] instance=ExtResource("13_u40ik")]
+[node name="resourcepanel" parent="CanvasLayer/TabContainer/Resources/ScrollContainer/HBoxContainer" groups=["resource_panels"] instance=ExtResource("13_u40ik")]
 visible = false
 layout_mode = 2
 resource = ExtResource("14_c5qii")
 
-[node name="resourcepanel3" parent="TabContainer/Resources/ScrollContainer/HBoxContainer" groups=["resource_panels"] instance=ExtResource("13_u40ik")]
+[node name="resourcepanel3" parent="CanvasLayer/TabContainer/Resources/ScrollContainer/HBoxContainer" groups=["resource_panels"] instance=ExtResource("13_u40ik")]
 visible = false
 layout_mode = 2
 resource = ExtResource("16_3xt0q")
 
-[node name="resourcepanel2" parent="TabContainer/Resources/ScrollContainer/HBoxContainer" groups=["resource_panels"] instance=ExtResource("13_u40ik")]
+[node name="resourcepanel2" parent="CanvasLayer/TabContainer/Resources/ScrollContainer/HBoxContainer" groups=["resource_panels"] instance=ExtResource("13_u40ik")]
 visible = false
 layout_mode = 2
 resource = ExtResource("17_5coso")
 
-[node name="Research" type="TabBar" parent="TabContainer"]
+[node name="Research" type="TabBar" parent="CanvasLayer/TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="Hire" type="TabBar" parent="TabContainer"]
+[node name="Hire" type="TabBar" parent="CanvasLayer/TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Hire"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/TabContainer/Hire"]
 clip_contents = false
 layout_mode = 0
 offset_left = 8.0
@@ -178,26 +157,52 @@ offset_right = 1138.0
 offset_bottom = 100.0
 metadata/_edit_lock_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Hire/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TabContainer/Hire/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = 100
 script = ExtResource("13_k0gia")
 
-[node name="worker_panel" parent="TabContainer/Hire/ScrollContainer/HBoxContainer" instance=ExtResource("18_0368l")]
+[node name="worker_panel" parent="CanvasLayer/TabContainer/Hire/ScrollContainer/HBoxContainer" instance=ExtResource("18_0368l")]
 layout_mode = 2
 worker = ExtResource("7_tx1ij")
 
-[node name="worker_panel2" parent="TabContainer/Hire/ScrollContainer/HBoxContainer" instance=ExtResource("18_0368l")]
+[node name="worker_panel2" parent="CanvasLayer/TabContainer/Hire/ScrollContainer/HBoxContainer" instance=ExtResource("18_0368l")]
 layout_mode = 2
 worker = ExtResource("5_eiu3u")
 
-[node name="esc_menu" parent="." instance=ExtResource("18_brnf3")]
+[node name="Infobutton" type="Button" parent="CanvasLayer"]
+z_index = 10
+z_as_relative = false
+offset_left = 970.0
+offset_top = -1.0
+offset_right = 1155.0
+offset_bottom = 33.0
+theme = ExtResource("12_fxr1q")
+toggle_mode = true
+text = "PLANET INFORMATION"
 
-[connection signal="resource_update" from="." to="TabContainer/Resources/ScrollContainer/HBoxContainer" method="resource_update"]
-[connection signal="toggled" from="Infobutton" to="." method="_on_infobutton_toggled"]
-[connection signal="add_to_resource" from="Etearth" to="." method="add_to_resource"]
-[connection signal="unlock_resource_check" from="Etearth" to="." method="unlock_resource_check"]
-[connection signal="update_planet_info" from="Etearth" to="." method="update_planet_info"]
-[connection signal="deselected" from="Etearth/EtearthButton" to="." method="button_deselected"]
-[connection signal="selected" from="Etearth/EtearthButton" to="." method="button_selected"]
-[connection signal="toggled" from="Etearth/EtearthButton" to="Etearth/EtearthButton" method="_on_toggled"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Infobutton"]
+visible = false
+layout_mode = 0
+offset_left = -780.0
+offset_top = 68.0
+offset_right = -19.0
+offset_bottom = 463.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_giqoe")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Infobutton/Panel"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 11.0
+offset_right = 744.0
+offset_bottom = 379.0
+scroll_deadzone = 150
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Infobutton/Panel/ScrollContainer"]
+layout_mode = 2
+columns = 6
+
+[node name="esc_menu" parent="CanvasLayer" instance=ExtResource("18_brnf3")]
+
+[connection signal="resource_update" from="." to="CanvasLayer/TabContainer/Resources/ScrollContainer/HBoxContainer" method="resource_update"]
+[connection signal="toggled" from="CanvasLayer/Infobutton" to="." method="_on_infobutton_toggled"]

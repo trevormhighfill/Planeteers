@@ -11,5 +11,7 @@ enum natural_resources {
 	}
 
 enum planets{
-	etearth
+	etearth,
+	josklet,
+	soonlar
 }

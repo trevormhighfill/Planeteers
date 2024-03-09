@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlanetResource" load_steps=3 format=3 uid="uid://cpqgk38a4by6x"]
+
+[ext_resource type="Resource" uid="uid://cnv6qs0t713ev" path="res://custom resources/natural resources/Lava.tres" id="1_hkus8"]
+[ext_resource type="Script" path="res://custom resources/planets/planet_resource.gd" id="6_13yca"]
+
+[resource]
+script = ExtResource("6_13yca")
+planet_name = "Soonlar"
+planet_type = 2
+planet_natural_resources = Array[Resource("res://custom resources/natural resources/natural_resource.gd")]([ExtResource("1_hkus8")])
+natural_resource_yield = Array[float]([20.0])
