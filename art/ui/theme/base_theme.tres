@@ -39,6 +39,7 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 bg_color = Color(0.125, 0.160156, 0.207031, 1)
 border_width_left = 10
 border_width_right = 10
+border_color = Color(0.12549, 0.160784, 0.207843, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glpbb"]
 bg_color = Color(0.125, 0.160156, 0.207031, 1)
