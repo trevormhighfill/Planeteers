@@ -7,7 +7,7 @@ extends Sprite2D
 @export var current_workers : Array[Workers] = []
 var current_workers_save : Array[Node] = []
 var worker_save = preload("res://worker_save.tscn")
-var selected_planet : EnumHolder.planets
+var selected_planet : EnumHolder.planets = -1
 #@onready var main = $SpaceScript
 #@export var resource_time : Array[float] = []
 #signal add_to_resource(amount : int,resource : EnumHolder.natural_resources)
@@ -58,11 +58,12 @@ func new_selected_planet(planet_type):
 
 
 func button_down():
+	if selected_planet == -1:
+		get_tree().call_group("Main","button_deselected")
+		get_tree().call_group("Main","button_selected",planet,current_workers_save,self)
+		return
 	if selected_planet == planet.planet_type:
 		get_tree().call_group("Main","button_deselected")
 	else:
 		get_tree().call_group("Main","button_deselected")
 		get_tree().call_group("Main","button_selected",planet,current_workers_save,self)
-		if selected_planet == null:
-			get_tree().call_group("Main","button_deselected")
-			get_tree().call_group("Main","button_selected",planet,current_workers_save,self)

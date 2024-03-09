@@ -55,6 +55,5 @@ func _process(delta):
 
 
 func button_down():
-	print("hire")
 	get_tree().call_group("Main","_newly_added_worker",worker_name,worker,get_node("worker_icon").skin_color,get_node("worker_icon").eye_color)
 	pass # Replace with function body.

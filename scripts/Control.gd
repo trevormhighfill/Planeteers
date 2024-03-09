@@ -18,13 +18,11 @@ func begin(func_worker_name : String,func_worker : Workers,func_skin_color : Col
 	if worker == null:
 		belonging_planet = func_belonging_planet
 		worker_name = func_worker_name
-		print(worker_name)
 		worker = func_worker
 		skin_color = func_skin_color
 		eye_color = func_eye_color
 		
 		ui_name.text = worker_name
-		print(ui_name)
 		ui_job.text = worker.job
 		ui_rating.text = str("Level: ",worker.resource_level)
 		ui_head.modulate = skin_color

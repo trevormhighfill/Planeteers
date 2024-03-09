@@ -7,6 +7,7 @@
 bg_color = Color(0, 0, 0, 0.65098)
 
 [node name="esc_menu" type="Panel"]
+process_mode = 3
 visible = false
 offset_left = 387.0
 offset_top = 141.0
@@ -16,6 +17,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_f3bi2")
 script = ExtResource("1_r1dua")
 
 [node name="menu" type="Button" parent="."]
+process_mode = 3
 layout_mode = 0
 offset_left = 26.0
 offset_top = 118.0
@@ -25,6 +27,7 @@ theme = ExtResource("1_01kum")
 text = "Quit to menu"
 
 [node name="desktop" type="Button" parent="."]
+process_mode = 3
 layout_mode = 0
 offset_left = 27.0
 offset_top = 206.0
@@ -33,5 +36,16 @@ offset_bottom = 278.0
 theme = ExtResource("1_01kum")
 text = "Quit to desktop "
 
+[node name="Resume" type="Button" parent="."]
+process_mode = 3
+layout_mode = 0
+offset_left = 27.0
+offset_top = 21.0
+offset_right = 267.0
+offset_bottom = 93.0
+theme = ExtResource("1_01kum")
+text = "Resume"
+
 [connection signal="button_down" from="menu" to="." method="to_menu"]
 [connection signal="button_down" from="desktop" to="." method="to_desktop"]
+[connection signal="button_down" from="Resume" to="." method="resume"]
